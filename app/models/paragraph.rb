@@ -1,6 +1,6 @@
 class Paragraph < ActiveRecord::Base
-  attr_accessible :content, :page_id
+  attr_accessible :content, :order_number
 
-  belongs_to :page
+  belongs_to :chapter
 
 end

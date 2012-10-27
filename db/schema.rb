@@ -11,20 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019154936) do
+ActiveRecord::Schema.define(:version => 20121027012725) do
 
-  create_table "pages", :force => true do |t|
+  create_table "books", :force => true do |t|
+    t.string   "name"
     t.string   "title"
-    t.string   "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "author"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "doc_file_name"
+    t.string   "doc_content_type"
+    t.integer  "doc_file_size"
+    t.datetime "doc_updated_at"
+  end
+
+  create_table "chapters", :force => true do |t|
+    t.integer  "order_number"
+    t.string   "title"
+    t.text     "summary"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "paragraphs", :force => true do |t|
     t.string   "content"
-    t.integer  "page_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "chapter_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "order_number"
   end
 
 end

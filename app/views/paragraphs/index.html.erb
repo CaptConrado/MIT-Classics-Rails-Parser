@@ -12,7 +12,7 @@
 <% @paragraphs.each do |paragraph| %>
   <tr>
     <td><%= paragraph.content %></td>
-    <td><%= paragraph.page_id %></td>
+    <td><%= paragraph.order_number %></td>
     <td><%= link_to 'Show', paragraph %></td>
     <td><%= link_to 'Edit', edit_paragraph_path(paragraph) %></td>
     <td><%= link_to 'Destroy', paragraph, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Order number:</b>
+  <%= @chapter.order_number %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @chapter.title %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%= @chapter.summary %>
+</p>
+
+
+<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
+<%= link_to 'Back', chapters_path %>
