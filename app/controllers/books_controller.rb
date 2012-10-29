@@ -44,8 +44,35 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
+
+        
+
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render json: @book, status: :created, location: @book }
+
+
+        testbook = @book
+        giantchunk = File.open(open(testbook.doc.path)).read #This opens the file and places it into an Array
+
+        #giantchunk.split("----------------------------------------------------------------------")
+        buychapters = giantchunk.split("----------------------------------------------------------------------")
+
+        buychapters.pop
+        buychapters.shift
+
+        eachchapter = buychapters
+
+        #eachchapter.each_with_index do |chap,book|
+        #puts book + 1
+        #puts chap
+        #end
+
+        eachchapter.each_with_index do |chap,book|
+        Chapter.create(order_number: book+1, summary: chap)
+
+        
+        end
+
       else
         format.html { render action: "new" }
         format.json { render json: @book.errors, status: :unprocessable_entity }
